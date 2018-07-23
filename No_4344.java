@@ -4,12 +4,12 @@ public class No_4344 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		int num = sc.nextInt();
+		float num = sc.nextInt();
 		int i = 0;
-		int sum = 0;
 		while (i < num) {
+			float sum = 0;
 			int x = sc.nextInt();
-			int[] newarr = new int[x];
+			float[] newarr = new float[x];
 			for (int j = 0; j < x; j++) {
 				
 				newarr[j] = sc.nextInt();
@@ -17,14 +17,16 @@ public class No_4344 {
 				
 			}
 
-			int avg = sum / x;
-			int count = 0;
+			float avg = sum / x;
+			float count = 0;
 			for (int m = 0; m < newarr.length; m++) {
 				if( newarr[m] > avg) {
 					count++;
 				}
 			}
-			System.out.println((double)(count * 100 / x) );
+			float f = count * 100 / x;
+			String str = String.format("%.3f", f);
+			System.out.println( str +"%");
 			i++;
 		}
 	}
