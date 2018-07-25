@@ -14,6 +14,7 @@ public class No_4673 {
                 System.out.println(i);              
             }
         }
+        
 	}
 	private static int getNumber(int num) {
 		int newNum = num;
