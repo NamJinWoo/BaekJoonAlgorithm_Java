@@ -11,7 +11,7 @@ public class No_10039 {
 				sum +=40;
 			}else {
 				sum += num;
-			}
+			} 
 			i++;
 		}
 		System.out.println(sum/5);
