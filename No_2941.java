@@ -11,7 +11,7 @@ public class No_2941 {
 			}
 		}
 		String newWord= null;
-		for(int i = 0; i< word.length()-2; i++) {
+		for(int i = 0; i< word.length()-1; i++) {
 			for(int j = 0; j<arr.length; j++) {
 				if(word.substring(i, i+2).equals(arr[j])) {
 					word = word.replaceFirst(arr[j], "!");
@@ -19,7 +19,6 @@ public class No_2941 {
 				}
 			}
 		}
-		System.out.println(newWord);
 		System.out.println(word.length());
 	}
 }
