@@ -1,40 +1,30 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class No_1157 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String test = sc.nextLine();
+		test = test.toLowerCase();
+		int[] x = new int[26];
 
-		Map<String, Integer> table = new HashMap<String, Integer>();
 		for (int i = 0; i < test.length(); i++) {
-			if (table.containsKey(Character.toString(test.charAt(i)).toUpperCase())) {
-				table.put(Character.toString(test.charAt(i)).toUpperCase(),
-						table.get(Character.toString(test.charAt(i)).toUpperCase()) + 1);
-			} else
-				table.put(Character.toString(test.charAt(i)).toUpperCase(), 1);
+			x[(int) (test.charAt(i) - 'a')]++;
 		}
-		if (table.size() == 1) {
-			for (String o : table.keySet()) {
-		//		if (table.get(o).equals(test.length())) {
-					System.out.println(o);
-		//		}
+		int first = x[0];
+		int second = 0;
+		int firstIndex = 0;
+		for (int i = 1; i < x.length; i++) {
+			if (first <= x[i]) {
+				second = first;
+				first = x[i];
+				firstIndex = i;
 			}
-		} else {
-			Object[] arr = table.values().toArray();
-			Arrays.sort(arr);
+		}
 
-			if (arr[table.size() - 1].equals(arr[table.size() - 2])) {
-				System.out.println("?");
-			} else {
-				for (String o : table.keySet()) {
-					if (table.get(o).equals(arr[table.size() - 1])) {
-						System.out.println(o);
-					}
-				}
-			}
+		if (first == second) {
+			System.out.println("?");
+		} else {
+			System.out.println((Character.toString((char) (firstIndex + 'a'))).toString().toUpperCase());
 		}
 	}
 }
