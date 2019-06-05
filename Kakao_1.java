@@ -15,11 +15,11 @@ public class Kakao_1 {
 		
 		for(int i =0; i<n; i++) {
 			String resultString = "";
-			int arr= arr1[i] | arr2[i];
-			int targetBit=1;
+			int arr= arr1[i] | arr2[i]; // 오어 연산을 한다.
+			int targetBit=1; //비트 앤드연산과 비트 쉬프트를 위해서 설정한다.
 			for(int j = 0; j< n; j++) {
-				resultString = ((arr & targetBit) > 0 ? "#" : " ") + resultString;
-				targetBit = targetBit << 1;
+				resultString = ((arr & targetBit) > 0 ? "#" : " ") + resultString;  //조건문을 만들어준다.
+				targetBit = targetBit << 1; //타겟 비트를 쉬프트한다.
 			}
 			result[i] = resultString;
 			System.out.println(result[i]);
